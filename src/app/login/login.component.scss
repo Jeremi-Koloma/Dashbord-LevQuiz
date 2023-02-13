@@ -3,19 +3,48 @@
     font-family: 'Poppins', sans-serif;
  }
  
- 
-//  .bgImg {
-//     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/image/bglogin.jpg);
-//     background-size: cover;
-//     width: 100%;
-//     height: 50vh;
-//     margin: 0;
-//     padding: 0;
-//     position: relative;
-//  }
- 
+.tout{
+   display: flex;
+   width: 100%;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+}
+.Shadow{
+   background: #fff;
+   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
 
+}
+
+.bgColor{
+   //background: #274F8A;
+   background: url(../../assets/image/bgWelcome3.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+h3{
+   color: #274F8A;
+}
+
+div img{
+   width: 120px;
+   position: relative;
+}
+
+.contenuDroitLogo{
+   position: relative;
+   top: 40px;
+   text-align: center;
+}
  
+.txtDescriptionApp{
+   color: #fff;
+   text-align: center;
+   font-size: .8rem;
+   //padding: 10px;
+}
  div .bi-arrow-left-circle {
     color: #fff;
     font-size: 1.5rem;
@@ -28,17 +57,16 @@
  div label {
     color: #505358;
     font-weight: 600;
-     font-size: .9rem;
+     font-size: 1rem;
  }
  
  div input {
-    width: 100%;
-    height: 100%;
     font-size: .9rem;
     border: 2px solid #e7ebee;
     border-radius: 8px;
     padding: .4rem;
     outline: none;
+    height: 45px;
     background: none;
     color: #171c25;
  }
@@ -60,9 +88,10 @@
     //background: #0C85F8; // #ebeef4
     width: 100%;
     color: #fff;
+    font-size: 1.2rem;
     font-weight: 400;
     box-shadow: none;
-    text-transform: initial;
+    height: 50px;
     background: linear-gradient(90deg, rgba(39, 79, 138, 1)0%, rgb(0, 161, 247)100%);
  }
  
@@ -75,33 +104,19 @@
  
  .txtInfoLogin {
     color: #171c25;
-    font-size: .6rem;
+    font-size: .7rem;
  }
  
- 
- .txtNoAccount {
-    color: #171c25;
-    font-size: .6rem;
-    text-align: center;
- }
  
  .resetPassword {
-    color: #EA4335;
-    font-size: .7rem;
+    color: #274F8A;
+    font-size: 1rem;
     text-align: center;
     position: relative;
     margin: 0;
-    padding: 0;
-    top: -10px;
+    padding: 5px;
  }
  
- .txtAuth {
-    color: #171c25;
-    font-size: .6rem;
-    text-align: center;
-    margin: 0;
-    padding: 0;
- }
  
  .iconss {
     text-align: center;

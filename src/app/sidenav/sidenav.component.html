@@ -1,19 +1,26 @@
 <mat-nav-list>
-  <div class="logo py-4">
-    <img src="./assets/logo.svg" alt="Company Logo" />
+  <div class="logo py-4" style="background: #0C85F8;">
+    <img src="../../assets/ " height="70px"  alt="Company Logo" />
   </div>
- 
-  <h2 matSubheader class="mt-2">Général</h2>
   <mat-divider></mat-divider>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
-    <mat-icon>home</mat-icon> Home
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-    <mat-icon>dashboard</mat-icon> Dashboard
-  </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 3 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+
+  <mat-divider></mat-divider>
+<h2 matSubheader class="mt-4"></h2>
+
+<a mat-list-item routerLinkActive="active" routerLink="/home" class="text-light">
+  <mat-icon class="text-light">dashboard</mat-icon>
+  Tableau de bord 
+</a>
+
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/videos" >
+  <mat-icon style="color: white;">videocam</mat-icon> <span style="color: white;">Vidéos</span> 
+</a>
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/conseil" >
+  <mat-icon style="color: white;">comment</mat-icon> <span style="color: white;">Conseils</span> 
+</a>
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/alerte" >
+  <mat-icon style="color: white;">alarm_on</mat-icon> <span style="color: white;">Alertes</span> 
+</a>
+
 </mat-nav-list>

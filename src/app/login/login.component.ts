@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy{
       if (this.accountService.redirectUrl) {
         this.router.navigateByUrl(this.accountService.redirectUrl);
       } else { // sinon il s'est authentifier mais l'url n'existe pas, on le redirige à la page d'Accueil
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/dashboard');
       }
     }
     // Sinon si la connexion n'a pas réussi, on le redirige vers la page de connexion
@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy{
               }
               // Sinon on le redirige vers la page d'Accueil si l'authentification a réussi
               else {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/dashboard');
               }
               this.loadingService.isLoading.next(false);
 
@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit, OnDestroy{
                   }
                   // Sinon on le redirige vers la page d'Accueil si l'authentification a réussi
                   else {
-                    this.router.navigateByUrl('/home');
+                    this.router.navigateByUrl('/dashboard');
                   }
                   this.loadingService.isLoading.next(false);
                 }

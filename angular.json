@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AdminDashbordJeremi": {
+    "dashboardControleFacile": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/admin-dashbord-jeremi",
+            "outputPath": "dist/dashboard-controle-facile",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,9 +30,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AdminDashbordJeremi:build:production"
+              "browserTarget": "dashboardControleFacile:build:production"
             },
             "development": {
-              "browserTarget": "AdminDashbordJeremi:build:development"
+              "browserTarget": "dashboardControleFacile:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AdminDashbordJeremi:build"
+            "browserTarget": "dashboardControleFacile:build"
           }
         },
         "test": {
@@ -102,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "2b8d7000-6b37-4745-ba43-75aca9d05026"
+    "analytics": false
   }
 }
