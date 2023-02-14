@@ -1,5 +1,5 @@
-<div class="container marge pt-2">
-    <div class="row g-3 my-2 text-white ">
+<div class="container pt-2">
+    <div class="row g-3 my-2 mb-4 text-white ">
         <div class="col-md-3">
             <div class="card shadow-sm d-flex justify-content-around align-items-center rounded">
                 <div class="elements pb-3 pt-4 text-dark d-flex">
@@ -7,7 +7,7 @@
                         <img src="../../assets/icons/icons-student.png" alt="icon apprenant">
                     </div>
                     <div>
-                        <h3 class="chiffres">720</h3>
+                        <h3 class="chiffres">{{studentList.length}}</h3>
                         <p class="soutitre">Apprénants</p>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <img src="../../assets/icons/icon-formateur.png" alt="icon formateur">
                     </div>
                     <div>
-                        <h3 class="chiffres">720</h3>
+                        <h3 class="chiffres">{{formateurList.length}}</h3>
                         <p class="soutitre">Formateurs</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <img src="../../assets/icons/icon-quiz.png" alt="icon quiz">
                     </div>
                     <div>
-                        <h3 class="chiffres">720</h3>
+                        <h3 class="chiffres">{{quizList.length}}</h3>
                         <p class="soutitre">Quizs</p>
                     </div>
                 </div>
@@ -49,11 +49,110 @@
                         <img src="../../assets/icons/icon-reponse.png" alt="icon reponses">
                     </div>
                     <div>
-                        <h3 class="chiffres">720</h3>
+                        <h3 class="chiffres">{{reponseList.length}}</h3>
                         <p class="soutitre">Réponses</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="container mb-4">
+        <div class="row pb-3">
+            <div class="col-12 col-md-6">
+                <div class="contour">
+                    <div class="headTitle d-flex text-light p-3 align-items-center">
+                        <div class="iconFormateurs ">
+                            <img src="../../assets/icons/icon-formateur-white.png" alt="icon formateur">
+                        </div>
+                        <h4>Formateurs en attentes</h4>
+                    </div>
+                    <hr>
+
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-9">
+                            <div class="ms-3">
+                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
+                                <p class="txtDemande">Démande de validation de son compte</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btnValid">Valider</button>
+                        </div>
+                    </div>
+
+                    <hr class="hr">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-9">
+                            <div class="ms-3">
+                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
+                                <p class="txtDemande">Démande de validation de son compte</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btnValid">Valider</button>
+                        </div>
+                    </div>
+
+                    <hr class="hr">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-9">
+                            <div class="ms-3">
+                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
+                                <p class="txtDemande">Démande de validation de son compte</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btnValid">Valider</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!---------------------- QUIZ ---------------------------------------------------->
+            <div class="col-12 col-md-6">
+                <div class="contour">
+                    <div class="headTitleQuiz d-flex p-3 align-items-center">
+                        <div class="iconFormateurs ">
+                            <img src="../../assets/icons/quiz-ajouter.png" alt="icon formateur">
+                        </div>
+                        <h4>Quiz récements ajoutés</h4>
+                    </div>
+                    <hr>
+
+                    <div class="row align-items-center"
+                        *ngFor=" let quiz of quizList | paginate: {itemsPerPage:3, currentPage:p}">
+                        <div class="col-12 col-md-9">
+                            <div class="ms-3">
+                                <p class="titleQuiz text-uppercase">{{quiz.titre}}</p>
+                                <p class="txtDescript">{{quiz.description}}</p>
+                            </div>
+                            <hr class="hr">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="text-center justify-content-center">
+                                <p class="txtQuestion">Question</p>
+                                <p class="NumberQuestion mx-3">15</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid bgfooter pt-3 pb-3">
+        <footer class="text-center">
+            <p>© 2022 LevQuiz l Tous droit réservé</p>
+        </footer>
+    </div>
+
+
+
 </div>

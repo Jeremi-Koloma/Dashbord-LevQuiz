@@ -68,4 +68,13 @@ export class QuizService {
   getUserPalyingQuiz(iduser: number, idquiz: number): Observable<any> {
     return this.http.post<any>(`${this.host}/user/playQuiz/${iduser}/${idquiz}`, null);
   }
+
+  
+  // *****************************      LISTE DE QUIZ       *******************************
+  // Une fonction pour avoir la liste des Quiz
+  getQuiz(): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(`${this.host}/quiz/list`);
+  }
+
+  
 }

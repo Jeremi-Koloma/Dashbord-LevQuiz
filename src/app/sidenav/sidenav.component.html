@@ -1,20 +1,19 @@
 <mat-nav-list>
   <div class="logo py-4" style="background: #0C85F8;">
     <div class="user_back d-flex">
-      <img src="../../assets/image/profil 2.jpg">
+      <img src="{{userphoto}}/{{user.id}}.png">
       <div class="rightImgContenu text-light">
-        <p class="username">Jeremi KOLOMA</p>
+        <p class="username">{{user.firstname+' '}}<span class="text-uppercase fw-bold">{{user.lastname}}</span> </p>
         <p class="textAdmin text-uppercase">Admin</p>
       </div>
     </div>
   </div>
-  <mat-divider></mat-divider>
 
-
+  <h4 matSubheader class="mt-2 text-light">Général</h4>
   <mat-divider></mat-divider>
 <h2 matSubheader class="mt-4"></h2>
 
-<a mat-list-item routerLinkActive="active" routerLink="/home" class="text-light">
+<a mat-list-item routerLinkActive="list-item-active" routerLink="/home" class="text-light">
   <mat-icon class="text-light">dashboard</mat-icon><span style="color: white;">Dashboard</span> 
 </a>
 

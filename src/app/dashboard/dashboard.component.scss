@@ -1,33 +1,123 @@
+/* **************************    CARD  **************/
 
-
-.iconStudent img{
+.iconStudent img {
     width: 55px;
     margin-right: 10px;
 }
 
-.iconFormateur img{
+.iconFormateur img {
     width: 63px;
     margin-right: 10px;
 }
 
-.iconQuiz img{
+.iconQuiz img {
     width: 50px;
     margin-right: 10px;
 }
 
-.iconReponses img{
+.iconReponses img {
     width: 50px;
     margin-right: 10px;
 }
 
-.chiffres{
+.chiffres {
     font-weight: 600;
     font-size: 2.4rem;
 }
 
-.soutitre{
+.soutitre {
     margin: 0;
     position: relative;
     top: -13px;
     color: #15283C;
+}
+
+
+
+/* **************************    TABLEAU DEMANDE **************/
+.contour {
+    background: #FFFFFF;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+}
+
+.headTitle {
+    background: #0C85F8;
+    ;
+    font-weight: 600;
+    border-radius: 17px 17px 0px 0px;
+}
+
+.iconFormateurs img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.Username {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.txtDemande {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -15px;
+}
+
+.hr {
+    margin: 0;
+    padding: 3px;
+}
+
+.btnValid {
+    background: #0C85F8;
+    color: #FFFFFF;
+}
+
+.btnValid:hover {
+    background: #274F8A;
+}
+
+
+/* **************************    TABLEAU QUIZ  **************/
+.headTitleQuiz {
+    background: #DADFE5;
+    color: #0E0E0E;
+    border-radius: 17px 17px 0px 0px;
+}
+
+.titleQuiz {
+    color: #214162;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.txtDescript {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -15px;
+    font-size: .9rem;
+}
+
+.txtQuestion {
+    color: #214162;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.NumberQuestion {
+    background: #DADFE5;
+    color: #0E0E0E;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+.bgfooter {
+    background: #DADFE5;
 }

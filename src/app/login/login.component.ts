@@ -105,40 +105,20 @@ export class LoginComponent implements OnInit, OnDestroy{
           this.accountService.saveToken(token);
           this.accountService.getUserInformation(user.username).subscribe(data => {
             this.persoconnecter = data;
-            console.log("--- User Recupérer ---")
-            console.log(this.persoconnecter)
-            // Vérifier si l'utilisateur a un compte formateur et si son status est activé
-            if (this.persoconnecter.status == true) {
-              // On vérifie s'il a un bon url de la page qu'il veut acceder et que l'authentification a réussi
-              if (this.accountService.redirectUrl) {
-                // on le redirige vers la page demande si elle existe
-                this.router.navigateByUrl(this.accountService.redirectUrl);
-              }
-              // Sinon on le redirige vers la page d'Accueil si l'authentification a réussi
-              else {
-                this.router.navigateByUrl('/dashboard');
-              }
-              this.loadingService.isLoading.next(false);
-
-            }
-            // Sinon si l'utilisateur a un compte APPRENANT
-            else {
-              // Parcourons les roles de user
-              for (let j = 0; j < this.persoconnecter.userRoles.length; j++) {
-                if (this.persoconnecter.userRoles[j].role.name.includes("APPRENANT")) {
-                  // On vérifie s'il a un bon url de la page qu'il veut acceder et que l'authentification a réussi
-                  if (this.accountService.redirectUrl) {
-                    // on le redirige vers la page demande si elle existe
-                    this.router.navigateByUrl(this.accountService.redirectUrl);
-                  }
-                  // Sinon on le redirige vers la page d'Accueil si l'authentification a réussi
-                  else {
-                    this.router.navigateByUrl('/dashboard');
-                  }
-                  this.loadingService.isLoading.next(false);
+            // Parcourons les roles de user si il a un role ADMIN
+            for (let j = 0; j < this.persoconnecter.userRoles.length; j++) {
+              if (this.persoconnecter.userRoles[j].role.name.includes("ADMIN")) {
+                // On vérifie s'il a un bon url de la page qu'il veut acceder et que l'authentification a réussi
+                if (this.accountService.redirectUrl) {
+                  // on le redirige vers la page demande si elle existe
+                  this.router.navigateByUrl(this.accountService.redirectUrl);
                 }
+                // Sinon on le redirige vers la page d'Accueil si l'authentification a réussi
+                else {
+                  this.router.navigateByUrl('/dashboard');
+                }
+                this.loadingService.isLoading.next(false);
               }
-
             }
           });
 

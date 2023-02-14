@@ -30,15 +30,16 @@ import { LoadingService } from './services/loading.service';
 import { QuizService } from './services/quiz.service';
 import { AlertService } from './services/alert.service';
 import { QuizresolverService } from './services/quizresolver.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
-const appRoute: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'resetpassword', component: ResetPasswordComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
-  { path: 'quizdetails/:id', component: QuizDetailsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-]
+// const appRoute: Routes = [
+//   { path: 'login', component: LoginComponent },
+//   { path: 'resetpassword', component: ResetPasswordComponent },
+//   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
+//   { path: 'quizdetails/:id', component: QuizDetailsComponent },
+//   { path: '', redirectTo: '/home', pathMatch: 'full' },
+// ]
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ const appRoute: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoute),
+    RouterModule,
+    NgxPaginationModule,
   ],
   providers: [
     AccountService,

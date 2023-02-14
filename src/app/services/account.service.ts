@@ -210,9 +210,21 @@ export class AccountService {
   }
 
 
-  //  La méthode qui nous permet d'afficher la liste des employés
+  //  La méthode qui nous permet d'afficher la liste de tout les utilisateurs
   getUserList(): Observable<User[]> {
     return this.http.get<User[]>(`${this.host}/user/listUsers`);
+  }
+
+
+  //  La méthode qui nous permet d'afficher uniquement la liste des Apprenant
+  getStudentList(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.host}/user/listApprenant`);
+  }
+
+  
+   //  La méthode qui nous permet d'afficher la liste des Formateurs
+   getFormateurList(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.host}/user/listFormateur`);
   }
 
 
