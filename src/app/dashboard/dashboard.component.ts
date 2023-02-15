@@ -122,6 +122,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/apprenants'])
   }
 
+  goToFormateurs() {
+    this.router.navigate(['/formateurs'])
+  }
+
 
 
 }

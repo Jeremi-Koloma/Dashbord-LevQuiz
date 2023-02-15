@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <h5 class="card-title pt-2 fw-bold text-primary">Liste des Apprenants <span class="fw-normal ms-2">({{studentList.length}})</span></h5>
+                        <h5 class="card-title pt-2 fw-bold text-primary">Liste des formateurs <span class="fw-normal ms-2" *ngIf="formateurList != null">({{formateurList.length}})</span></h5>
                     </div>
                 </div>
             </div>
@@ -36,20 +36,20 @@
                                 <tbody class="text-dark">
                                     <!-- ----------------------- Liste Element tableau start---------------------------
                                 --------------------------------------------------- -->
-                                    <tr *ngFor=" let student of studentList | paginate: {itemsPerPage:5, currentPage:paginateNumber} ">
+                                    <tr *ngFor=" let formateur of formateurList | paginate: {itemsPerPage:5, currentPage:paginateNumber}">
                                 
                                         <td>
-                                            <p class="text-body mb-0">{{student[4]}}</p>
+                                            <p class="text-body mb-0">{{formateur[4]}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-body mb-0">{{student[3]}}</p>
+                                            <p class="text-body mb-0">{{formateur[3]}}</p>
                                         </td>
-                                        <td><span class="badge badge-soft-success mb-0 text-uppercase">{{student[6]}}</span></td>
+                                        <td><span class="badge badge-soft-success mb-0 text-uppercase">{{formateur[6]}}</span></td>
                                         <td>
-                                            <p class="text-body mb-0">{{student[1] | date:"dd/MM/yyyy"}}</p>
+                                            <p class="text-body mb-0">{{formateur[1] | date:"dd/MM/yyyy"}}</p>
                                         </td>
                                         <td>
-                                            <ul class="list-inline mb-0">
+                                            <ul class="list-inline mb-0" (click)="TodeleteUser(formateur[0])">
                                                 <li class="list-inline-item">
                                                     <a href="javascript:void(0);" data-bs-toggle="tooltip"
                                                         data-bs-placement="top" title="supprimer"

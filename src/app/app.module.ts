@@ -32,6 +32,7 @@ import { AlertService } from './services/alert.service';
 import { QuizresolverService } from './services/quizresolver.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ApprenantsComponent } from './apprenants/apprenants.component';
+import { FormateursComponent } from './formateurs/formateurs.component';
 
 
 // const appRoute: Routes = [
@@ -52,7 +53,8 @@ import { ApprenantsComponent } from './apprenants/apprenants.component';
     LoginComponent,
     ResetPasswordComponent,
     QuizDetailsComponent,
-    ApprenantsComponent
+    ApprenantsComponent,
+    FormateursComponent
   ],
   imports: [
     BrowserModule,

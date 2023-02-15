@@ -241,4 +241,10 @@ export class AccountService {
 
 
 
+  // Une méthode pour supprimer un User
+  deleteUser(idUser: number): Observable<any> {
+    return this.http.delete(`${this.host}/user/delete/${idUser}`);
+  }
+
+
 }

@@ -10,8 +10,8 @@ import { AccountService } from '../services/account.service';
 })
 export class ApprenantsComponent implements OnInit {
 
-  // studentList !:  User[]
   studentList:any
+  paginateNumber: number = 1;
 
   constructor(
     private router: Router,
