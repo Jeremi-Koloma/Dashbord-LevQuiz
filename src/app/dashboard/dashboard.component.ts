@@ -98,6 +98,9 @@ export class DashboardComponent implements OnInit {
 
 
 
+  goToStudent(){
+    this.router.navigate(['/apprenants'])
+  }
 
 
   

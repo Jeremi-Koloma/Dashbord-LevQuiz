@@ -31,6 +31,7 @@ import { QuizService } from './services/quiz.service';
 import { AlertService } from './services/alert.service';
 import { QuizresolverService } from './services/quizresolver.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ApprenantsComponent } from './apprenants/apprenants.component';
 
 
 // const appRoute: Routes = [
@@ -50,7 +51,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PrincipalComponent,
     LoginComponent,
     ResetPasswordComponent,
-    QuizDetailsComponent
+    QuizDetailsComponent,
+    ApprenantsComponent
   ],
   imports: [
     BrowserModule,

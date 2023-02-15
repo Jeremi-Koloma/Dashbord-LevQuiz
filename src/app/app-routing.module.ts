@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ApprenantsComponent } from './apprenants/apprenants.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
+      { path: 'apprenants', component: ApprenantsComponent, canActivate: [AuthenticationGuard] },
     ],
   },
 
