@@ -1,13 +1,14 @@
 <div class="container pt-2">
     <div class="row g-3 my-2 mb-4 text-white ">
         <div class="col-md-3">
-            <div class="card shadow-sm d-flex justify-content-around align-items-center rounded" (click)="goToStudent()">
+            <div class="card shadow-sm d-flex justify-content-around align-items-center rounded"
+                (click)="goToStudent()">
                 <div class="elements pb-3 pt-4 text-dark d-flex">
                     <div class="iconStudent">
                         <img src="../../assets/icons/icons-student.png" alt="icon apprenant">
                     </div>
                     <div>
-                        <h3 class="chiffres">{{studentList.length}}</h3>
+                        <h3 class="chiffres" *ngIf="studentList != null">{{studentList.length}}</h3>
                         <p class="soutitre">Apprénants</p>
                     </div>
                 </div>
@@ -21,7 +22,7 @@
                         <img src="../../assets/icons/icon-formateur.png" alt="icon formateur">
                     </div>
                     <div>
-                        <h3 class="chiffres">{{formateurList.length}}</h3>
+                        <h3 class="chiffres" *ngIf="formateurList != null">{{formateurList.length}}</h3>
                         <p class="soutitre">Formateurs</p>
                     </div>
                 </div>
@@ -35,7 +36,7 @@
                         <img src="../../assets/icons/icon-quiz.png" alt="icon quiz">
                     </div>
                     <div>
-                        <h3 class="chiffres">{{quizList.length}}</h3>
+                        <h3 class="chiffres" *ngIf="quizList != null">{{quizList.length}}</h3>
                         <p class="soutitre">Quizs</p>
                     </div>
                 </div>
@@ -49,7 +50,7 @@
                         <img src="../../assets/icons/icon-reponse.png" alt="icon reponses">
                     </div>
                     <div>
-                        <h3 class="chiffres">{{reponseList.length}}</h3>
+                        <h3 class="chiffres" *ngIf="reponseList != null">{{reponseList.length}}</h3>
                         <p class="soutitre">Réponses</p>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
     <div class="container mb-4">
         <div class="row pb-3">
             <div class="col-12 col-md-6">
-                <div class="contour">
+                <div class="contour pb-2">
                     <div class="headTitle d-flex text-light p-3 align-items-center">
                         <div class="iconFormateurs ">
                             <img src="../../assets/icons/icon-formateur-white.png" alt="icon formateur">
@@ -70,43 +71,30 @@
                     </div>
                     <hr>
 
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-9">
-                            <div class="ms-3">
-                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
-                                <p class="txtDemande">Démande de validation de son compte</p>
+                    <div *ngIf="formateurListStatusNoActive != null">
+
+                        <div class="row align-items-center pb-2"
+                            *ngFor="let formateur of formateurListStatusNoActive | paginate: {itemsPerPage:3, currentPage:paginateNumberStatus} ">
+                            <div class="col-12 col-md-8">
+                                <div class="ms-3">
+                                    <p class="Username">{{formateur[1]+" "}}<span
+                                            class="text-uppercase">{{formateur[2]}}</span></p>
+                                    <p class="txtDemande">Démande de validation de son compte</p>
+                                </div>
+                                <hr class="hr">
                             </div>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <button class="btn btnValid">Valider</button>
+                            <div class="col-12 col-md-4">
+                                <button class="btn btnValid" (click)="ToActiveStatus(formateur[0])">Valider</button>
+                            </div>
                         </div>
                     </div>
 
-                    <hr class="hr">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-9">
-                            <div class="ms-3">
-                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
-                                <p class="txtDemande">Démande de validation de son compte</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <button class="btn btnValid">Valider</button>
-                        </div>
-                    </div>
+                    <p class="text-center" *ngIf="formateurListStatusNoActive == null">Accune demande de validation</p>
 
-                    <hr class="hr">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-9">
-                            <div class="ms-3">
-                                <p class="Username">Adama <span class="text-uppercase">coulibaly</span></p>
-                                <p class="txtDemande">Démande de validation de son compte</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <button class="btn btnValid">Valider</button>
-                        </div>
-                    </div>
+
+                    <pagination-controls (pageChange)="paginateNumberStatus = $event"></pagination-controls>
+
+
 
                 </div>
             </div>
@@ -123,7 +111,7 @@
                     <hr>
 
                     <div class="row align-items-center"
-                        *ngFor=" let quiz of quizList | paginate: {itemsPerPage:3, currentPage:p}">
+                        *ngFor=" let quiz of quizList | paginate: {itemsPerPage:4, currentPage:p}">
                         <div class="col-12 col-md-9">
                             <div class="ms-3">
                                 <p class="titleQuiz text-uppercase">{{quiz.titre}}</p>

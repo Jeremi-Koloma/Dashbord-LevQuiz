@@ -10,7 +10,8 @@ import { AccountService } from '../services/account.service';
 })
 export class ApprenantsComponent implements OnInit {
 
-  studentList !:  User[]
+  // studentList !:  User[]
+  studentList:any
 
   constructor(
     private router: Router,
@@ -26,14 +27,17 @@ export class ApprenantsComponent implements OnInit {
 
   // Une fonction pour afficher la liste des Apprenants
   TogetStudentList(){
-    this.accountService.getStudentList().subscribe(
-      (data)=>{
-        this.studentList = data;
-        console.log(this.studentList)
-      },
-      (err)=>{
-        console.log(err)
-      }
+    this.accountService.getStudentList().subscribe(data=>{
+      this.studentList = data;
+      console.log(this.studentList)
+    }
+      // (data)=>{
+      //   this.studentList = data;
+      //   console.log(this.studentList)
+      // },
+      // (err)=>{
+      //   console.log(err)
+      // }
     )
   }
 

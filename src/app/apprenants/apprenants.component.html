@@ -6,8 +6,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
         integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 
-    <div class="container">
-        <div class="col-12 offset-md-3 col-md-6">
+    <div class="container containerAll">
+        <div class="col-12 offset-md-3 col-md-6 contourContainer">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="mb-3">
@@ -39,14 +39,14 @@
                                     <tr *ngFor=" let student of studentList">
                                 
                                         <td>
-                                            <p class="text-body mb-0">{{student.lastname}}</p>
+                                            <p class="text-body mb-0">{{student[4]}}</p>
                                         </td>
                                         <td>
-                                            <p class="text-body mb-0 ">{{student.firstname}}</p>
+                                            <p class="text-body mb-0">{{student[3]}}</p>
                                         </td>
-                                        <td><span class="badge badge-soft-success mb-0 text-uppercase">{{student.username}}</span></td>
+                                        <td><span class="badge badge-soft-success mb-0 text-uppercase">{{student[6]}}</span></td>
                                         <td>
-                                            <p class="text-body mb-0 ">{{student.createdDate}}</p>
+                                            <p class="text-body mb-0">{{student[1] | date:"dd/MM/yyyy"}}</p>
                                         </td>
                                         <td>
                                             <ul class="list-inline mb-0">

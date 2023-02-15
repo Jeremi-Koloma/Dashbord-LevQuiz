@@ -17,13 +17,17 @@ import { AlertType } from '../_Enum/alert-type';
 })
 export class DashboardComponent implements OnInit {
 
-  studentList !:  User[]
-  formateurList !:  User[]
+  studentList !: User[]
+  formateurList !: User[]
+  formateurListStatusNoActive !: any
+  formateurCompteActiver !: any
   quizList !: Quiz[]
   reponseList !: Reponses[]
   nombreNotification!: number;
   userphoto!: string;
   p: number = 1;
+  paginateNumberStatus: number = 1;
+
 
   constructor(
     private router: Router,
@@ -31,13 +35,15 @@ export class DashboardComponent implements OnInit {
     private quizService: QuizService,
     private reponseService: ReponseService,
     private alertService: AlertService
-  ){}
+  ) { }
 
   ngOnInit() {
 
     this.TogetStudentList()
 
     this.TogetFormateurList()
+
+    this.TogetFormateurListNoActive()
 
     this.TogetQuizList()
 
@@ -46,62 +52,76 @@ export class DashboardComponent implements OnInit {
 
 
   // Une fonction pour afficher la liste des Apprenants
-  TogetStudentList(){
+  TogetStudentList() {
     this.accountService.getStudentList().subscribe(
-      (data)=>{
+      (data) => {
         this.studentList = data;
       },
-      (err)=>{
-        console.log(err)
-      }
+      // (err)=>{
+      //   console.log(err)
+      // }
     )
   }
 
 
-   // Une fonction pour afficher la liste des Formateurs
-   TogetFormateurList(){
+  // Une fonction pour afficher la liste des Formateurs
+  TogetFormateurList() {
     this.accountService.getFormateurList().subscribe(
-      (data)=>{
+      (data) => {
         this.formateurList = data;
-      },
-      (err)=>{
-        console.log(err)
       }
     )
   }
 
+
+  // Une fonction pour afficher la liste des Formateurs
+  TogetFormateurListNoActive() {
+    this.accountService.getFormateurListNoActive().subscribe(
+      (data) => {
+        this.formateurListStatusNoActive = data;
+        console.log( this.formateurListStatusNoActive)
+      }
+    )
+  }
+
+
+  // Une fonction pour Activer le formateur
+  ToActiveStatus(id: number) {
+    this.accountService.ActiveStatus(id).subscribe(
+      (data) => {
+         // Appelons la fonction pour retourner la liste des formateurs non activer
+         this.TogetFormateurListNoActive()
+        this.formateurCompteActiver = data;
+
+      }
+    )
+  }
 
   // Une fonction pour afficher la liste des Quiz
-  TogetQuizList(){
+  TogetQuizList() {
     this.quizService.getQuiz().subscribe(
-      (data)=>{
+      (data) => {
         this.quizList = data;
-      },
-      (err)=>{
-        console.log(err)
       }
     )
   }
 
 
   // Une fonction pour afficher la liste des Reponses
-  TogetReponseList(){
+  TogetReponseList() {
     this.reponseService.getReponseList().subscribe(
-      (data)=>{
+      (data) => {
         this.reponseList = data;
-      },
-      (err)=>{
-        console.log(err)
       }
     )
   }
 
 
 
-  goToStudent(){
+  goToStudent() {
     this.router.navigate(['/apprenants'])
   }
 
 
-  
+
 }
