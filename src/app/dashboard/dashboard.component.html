@@ -74,7 +74,7 @@
                     <div *ngIf="formateurListStatusNoActive != null">
 
                         <div class="row align-items-center pb-2"
-                            *ngFor="let formateur of formateurListStatusNoActive | paginate: {itemsPerPage:3, currentPage:paginateNumberStatus} ">
+                            *ngFor="let formateur of formateurListStatusNoActive | paginate: {itemsPerPage:3, currentPage:paginateNumberStatus}">
                             <div class="col-12 col-md-8">
                                 <div class="ms-3">
                                     <p class="Username">{{formateur[1]+" "}}<span
@@ -88,20 +88,17 @@
                             </div>
                         </div>
                     </div>
-
+                    <pagination-controls (pageChange)="paginateNumberStatus = $event"></pagination-controls>
                     <p class="text-center" *ngIf="formateurListStatusNoActive == null">Accune demande de validation</p>
 
-
-                    <pagination-controls (pageChange)="paginateNumberStatus = $event"></pagination-controls>
-
-
+                   
 
                 </div>
             </div>
 
             <!---------------------- QUIZ ---------------------------------------------------->
             <div class="col-12 col-md-6">
-                <div class="contour">
+                <div class="contour pb-3">
                     <div class="headTitleQuiz d-flex p-3 align-items-center">
                         <div class="iconFormateurs ">
                             <img src="../../assets/icons/quiz-ajouter.png" alt="icon formateur">

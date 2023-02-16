@@ -49,7 +49,7 @@
                                             <p class="text-body mb-0">{{student[1] | date:"dd/MM/yyyy"}}</p>
                                         </td>
                                         <td>
-                                            <ul class="list-inline mb-0">
+                                            <ul class="list-inline mb-0" (click)="TodeleteUser(student[0])">
                                                 <li class="list-inline-item">
                                                     <a href="javascript:void(0);" data-bs-toggle="tooltip"
                                                         data-bs-placement="top" title="supprimer"

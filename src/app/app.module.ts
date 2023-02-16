@@ -34,6 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ApprenantsComponent } from './apprenants/apprenants.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { NgConfirmModule } from 'ng-confirm-box';
+import { QuizComponent } from './quiz/quiz.component';
 
 
 // const appRoute: Routes = [
@@ -55,7 +56,8 @@ import { NgConfirmModule } from 'ng-confirm-box';
     ResetPasswordComponent,
     QuizDetailsComponent,
     ApprenantsComponent,
-    FormateursComponent
+    FormateursComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

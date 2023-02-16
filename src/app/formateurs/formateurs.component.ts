@@ -33,49 +33,11 @@ export class FormateursComponent implements OnInit {
   TogetFormateurList() {
     this.accountService.getFormateurList().subscribe(data => {
       this.formateurList = data;
+      console.log(this.formateurList)
     }
     )
   }
 
-
-  // // une méthode pour supprimer un Formateur
-  // TodeleteUser(id: number) {
-  //   this.accountService.deleteUser(id).subscribe(
-  //     {
-  //       next: (data) => {
-
-
-  //       },
-  //       error: err => {
-  //         console.log(err.status)
-
-  //         if (err.status === 200) {
-  //           this.popUp();
-  //           // Appelons la fonction qui affiche la liste
-  //           this.TogetFormateurList();
-  //         }
-
-  //       }
-  //     }
-  //   )
-  // }
-
-
-  // popUp() {
-  //   Swal.fire({
-  //     title: 'Alerte !',
-  //     text: 'Voulez-vous vraiment supprimé ?',
-  //     heightAuto: false,
-  //     showConfirmButton: true,
-  //     confirmButtonText: "Oui",
-  //     cancelButtonText: "Non",
-  //     confirmButtonColor: '#1ED085',
-  //     cancelButtonColor: '#EF3A2B',
-  //     showDenyButton: false,
-  //     showCancelButton: true,
-  //     allowOutsideClick: false
-  //   })
-  // }
 
 
   // une méthode pour supprimer un Formateur
@@ -94,10 +56,9 @@ export class FormateursComponent implements OnInit {
       () => {
         console.log("Non");
       }
-
-
     )
   }
+  
 
 
 

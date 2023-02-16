@@ -56,10 +56,7 @@ export class DashboardComponent implements OnInit {
     this.accountService.getStudentList().subscribe(
       (data) => {
         this.studentList = data;
-      },
-      // (err)=>{
-      //   console.log(err)
-      // }
+      }
     )
   }
 
@@ -79,7 +76,6 @@ export class DashboardComponent implements OnInit {
     this.accountService.getFormateurListNoActive().subscribe(
       (data) => {
         this.formateurListStatusNoActive = data;
-        console.log( this.formateurListStatusNoActive)
       }
     )
   }
@@ -89,13 +85,12 @@ export class DashboardComponent implements OnInit {
   ToActiveStatus(id: number) {
     this.accountService.ActiveStatus(id).subscribe(
       (data) => {
-         // Appelons la fonction pour retourner la liste des formateurs non activer
-         this.TogetFormateurListNoActive()
         this.formateurCompteActiver = data;
-
+        window.location.reload()
       }
     )
   }
+
 
   // Une fonction pour afficher la liste des Quiz
   TogetQuizList() {
