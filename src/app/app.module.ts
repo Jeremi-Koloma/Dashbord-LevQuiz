@@ -33,6 +33,7 @@ import { QuizresolverService } from './services/quizresolver.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ApprenantsComponent } from './apprenants/apprenants.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
+import { NgConfirmModule } from 'ng-confirm-box';
 
 
 // const appRoute: Routes = [
@@ -73,6 +74,7 @@ import { FormateursComponent } from './formateurs/formateurs.component';
     HttpClientModule,
     RouterModule,
     NgxPaginationModule,
+    NgConfirmModule,
   ],
   providers: [
     AccountService,
