@@ -83,7 +83,9 @@
 
                                 </tbody>
                             </table>
-                            <pagination-controls (pageChange)="paginateNumber = $event"></pagination-controls>
+                            <pagination-controls (pageChange)="paginateNumber =$event" class="text-center"
+                                nextLabel="Suivants" previousLabel="Précédents">
+                            </pagination-controls>
                         </div>
                     </div>
                 </div>

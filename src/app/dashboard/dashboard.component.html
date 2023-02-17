@@ -90,7 +90,11 @@
                             </div>
                         </div>
                     </div>
-                    <pagination-controls (pageChange)="paginateNumberStatus = $event"></pagination-controls>
+
+                    <pagination-controls (pageChange)="paginateNumberStatus =$event" class="text-center"
+                        nextLabel="Suivants" previousLabel="Précédents">
+                    </pagination-controls>
+
                     <p class="text-center" *ngIf="formateurListStatusNoActive == null">Accune demande de validation</p>
 
 
@@ -110,10 +114,19 @@
                     <hr>
 
                     <div class="row align-items-center"
-                        *ngFor=" let quiz of quizList | paginate: {itemsPerPage:4, currentPage:p}">
+                        *ngFor=" let quiz of quizList | paginate: {itemsPerPage:3, currentPage:p}">
                         <div class="col-12 col-md-9">
                             <div class="ms-3">
-                                <p class="titleQuiz text-uppercase">{{quiz.titre}}</p>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p class="titleQuiz text-uppercase">{{quiz.titre}}</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="quizDate"><i class="bi bi-calendar2-week"></i> {{quiz.quizDate |
+                                            date: 'dd/MM/yyyy'}}
+                                        </p>
+                                    </div>
+                                </div>
                                 <p class="txtDescript">{{quiz.description}}</p>
                             </div>
                             <hr class="hr">
@@ -121,7 +134,7 @@
                         <div class="col-12 col-md-3">
                             <div class="text-center justify-content-center">
                                 <p class="txtQuestion">Question</p>
-                                <p class="NumberQuestion mx-3">15</p>
+                                <p class="NumberQuestion mx-3">{{quiz.questionsList.length}} </p>
                             </div>
                         </div>
                     </div>

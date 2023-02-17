@@ -86,8 +86,8 @@
 
 /* **************************    TABLEAU QUIZ  **************/
 .headTitleQuiz {
-    background: #DADFE5;
-    color: #0E0E0E;
+    background: #274F8A;
+    color: #fff;
     border-radius: 17px 17px 0px 0px;
 }
 
@@ -95,6 +95,15 @@
     color: #214162;
     font-weight: 600;
     font-size: 1.1rem;
+    margin: 0;
+}
+
+.quizDate{
+    margin-bottom: 20px;
+    background: #274F8A;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .txtDescript {
@@ -121,6 +130,8 @@
     padding: 3px;
     border-radius: 7px;
 }
+
+
 
 .bgfooter {
     background: #DADFE5;
