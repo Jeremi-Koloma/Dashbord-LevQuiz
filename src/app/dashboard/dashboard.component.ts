@@ -122,5 +122,10 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  goToQuizList() {
+    this.router.navigate(['/quizlist'])
+  }
+
+
 
 }

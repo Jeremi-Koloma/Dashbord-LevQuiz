@@ -37,14 +37,6 @@ import { NgConfirmModule } from 'ng-confirm-box';
 import { QuizComponent } from './quiz/quiz.component';
 
 
-// const appRoute: Routes = [
-//   { path: 'login', component: LoginComponent },
-//   { path: 'resetpassword', component: ResetPasswordComponent },
-//   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard] },
-//   { path: 'quizdetails/:id', component: QuizDetailsComponent },
-//   { path: '', redirectTo: '/home', pathMatch: 'full' },
-// ]
-
 @NgModule({
   declarations: [
     AppComponent,
