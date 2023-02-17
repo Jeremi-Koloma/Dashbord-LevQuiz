@@ -7,6 +7,7 @@ import { AuthenticationGuard } from './guard/authentication.guard';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { ProfileComponent } from './profile/profile.component';
 import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -21,6 +22,8 @@ const routes: Routes = [
       { path: 'apprenants', component: ApprenantsComponent, canActivate: [AuthenticationGuard]},
       { path: 'formateurs', component: FormateursComponent, canActivate: [AuthenticationGuard]},
       { path: 'quizlist', component: QuizComponent, canActivate: [AuthenticationGuard]},
+      { path: 'profile/:username', component: ProfileComponent, canActivate: [AuthenticationGuard]},
+     
     ],
   },
 

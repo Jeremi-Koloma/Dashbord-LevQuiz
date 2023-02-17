@@ -11,18 +11,18 @@ import { AlertType } from '../_Enum/alert-type';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit{
+export class SidenavComponent implements OnInit {
 
   user = new User();
   private subscriptions: Subscription[] = [];
   userphoto!: string;
-  
+
 
   constructor(
     private router: Router,
     private accountService: AccountService,
     private alertService: AlertService
-  ){}
+  ) { }
 
   ngOnInit() {
 
@@ -56,8 +56,17 @@ export class SidenavComponent implements OnInit{
   }
 
 
-   // Une fonction pour Déconnexion
-   logOut(): void {
+  // une fonction pour permettre à l'utilisateur de voir son profil
+  getUserProfile(username: string): void {
+    // on appel le path qui permettre d'acceder au profil avec le nom d'utilisateur en paramètre
+    this.router.navigate(['/profile', username]);
+    // On affiche l'utilisateur dans la console
+    console.log("Nom d'utilisateur : " + username);
+  }
+
+
+  // Une fonction pour Déconnexion
+  logOut(): void {
     // on appel la fonction logOut() qui se trouve dans nore service pour déconnecter l'utilisateur
     this.accountService.logOut();
     // on le redirige vers la page de connexion

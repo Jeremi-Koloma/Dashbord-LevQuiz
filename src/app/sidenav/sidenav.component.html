@@ -1,7 +1,7 @@
 <mat-nav-list>
   <div class="logo py-4" style="background: #0C85F8;">
     <div class="user_back d-flex">
-      <img src="{{userphoto}}/{{user.id}}.png">
+      <img src="{{userphoto}}/{{user.id}}.png" (click)="getUserProfile(user.username)">
       <div class="rightImgContenu text-light">
         <p class="username">{{user.firstname+' '}}<span class="text-uppercase fw-bold">{{user.lastname}}</span> </p>
         <p class="textAdmin text-uppercase">Admin</p>

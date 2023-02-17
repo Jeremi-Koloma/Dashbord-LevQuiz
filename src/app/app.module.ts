@@ -35,6 +35,7 @@ import { ApprenantsComponent } from './apprenants/apprenants.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { NgConfirmModule } from 'ng-confirm-box';
 import { QuizComponent } from './quiz/quiz.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { QuizComponent } from './quiz/quiz.component';
     QuizDetailsComponent,
     ApprenantsComponent,
     FormateursComponent,
-    QuizComponent
+    QuizComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
