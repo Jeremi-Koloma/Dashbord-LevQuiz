@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgConfirmService } from 'ng-confirm-box';
 import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-apprenants',
@@ -39,21 +40,25 @@ export class ApprenantsComponent implements OnInit {
 
    // une méthode pour supprimer un Formateur
    TodeleteUser(id: number) {
-    this.confirmService.showConfirm("Voulez-vous vraiment supprimé ?",
-      () => {
-        this.accountService.deleteUser(id).subscribe(
-          (data) => {
-            console.log(data)
-            this.TogetStudentList();
-          }
+    Swal.fire({
+      title: 'Suppression ?',
+      text: "Êtes-vous vraiment sûr de supprimer l'apprénant ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer',
+      cancelButtonText: 'Anuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Apprénant supprimé !',
+          'success'
         )
-        window.location.reload()
-      },
-
-      () => {
-        console.log("Non");
       }
-    )
+    })
+
   }
 
 

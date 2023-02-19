@@ -42,21 +42,24 @@ export class FormateursComponent implements OnInit {
 
   // une méthode pour supprimer un Formateur
   TodeleteUser(id: number) {
-    this.confirmService.showConfirm("Voulez-vous vraiment supprimé ?",
-      () => {
-        this.accountService.deleteUser(id).subscribe(
-          (data) => {
-            console.log(data)
-            this.TogetFormateurList();
-          }
+    Swal.fire({
+      title: 'Suppression ?',
+      text: "Êtes-vous vraiment sûr de le supprimer ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer',
+      cancelButtonText: 'Anuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Formateur supprimé !',
+          'success'
         )
-        window.location.reload()
-      },
-
-      () => {
-        console.log("Non");
       }
-    )
+    })
   }
   
 
