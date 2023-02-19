@@ -60,8 +60,6 @@ export class SidenavComponent implements OnInit {
   getUserProfile(username: string): void {
     // on appel le path qui permettre d'acceder au profil avec le nom d'utilisateur en paramètre
     this.router.navigate(['/profile', username]);
-    // On affiche l'utilisateur dans la console
-    console.log("Nom d'utilisateur : " + username);
   }
 
 

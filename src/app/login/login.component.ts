@@ -7,13 +7,14 @@ import { AccountService } from '../services/account.service';
 import { AlertService } from '../services/alert.service';
 import { LoadingService } from '../services/loading.service';
 import { AlertType } from '../_Enum/alert-type';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy{
+export class LoginComponent implements OnInit, OnDestroy {
 
 
   // une variable pour la validation de type FormGroup
@@ -90,9 +91,6 @@ export class LoginComponent implements OnInit, OnDestroy{
   // Quand on appel cette fonction onLogin
   onLogin(user: User): void {
     // on appel le service loadingService le chargement de la page
-    //this.loadingService.presentLoading();
-    // Affichons les informations de l'utilisateur dans la console
-    console.log(user);
     // On l'ajout dans la liste de subscriptions
     this.subscriptions.push(
       // on envoie les identifiants de l'utilisateur à méthode login dans notre serviceAccount
@@ -127,11 +125,16 @@ export class LoginComponent implements OnInit, OnDestroy{
           // sinon s'il ya erreur, on l'affiche dans la console
           console.log(error);
           this.loadingService.isLoading.next(false);
-          // on appel la fonction de message
-          this.alertService.showAlert(
-            "Nom d'utilisateur ou le mots de passe est incorrect !",
-            AlertType.DANGER
-          );
+
+          // Alert Popup success
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: "Nom d'utilisateur ou le mots de passe est incorrect !",
+            showConfirmButton: false,
+            timer: 4000
+          })
         }
       )
     );

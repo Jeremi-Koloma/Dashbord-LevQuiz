@@ -31,10 +31,6 @@ export class ProfileComponent {
   userphoto!: string;
 
 
-
-  // une variable pour nos segement
-  segId = 'profil';
-
   constructor(
     private route: ActivatedRoute,
     public accountService: AccountService,
@@ -118,25 +114,30 @@ export class ProfileComponent {
     this.subscriptions.push(
       this.accountService.updateUser(updatedUser).subscribe(
         response => {
-          console.log(response);
+          const userUpdatedToSock = response;
           // vérifions si le profile a changé
           if (this.profilePictureChange) {
             // on prend le profil actuel de l'utilisateur
             this.accountService.uploadeUserProfilePicture(this.profilePicture);
           }
           this.loadingService.isLoading.next(false);
-        
+
           // Alert Popup success
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title:'Succès !',
+            title: 'Succès !',
             text: 'Profil mis à jour avec succès !',
             showConfirmButton: false,
             heightAuto: false,
             showDenyButton: false,
             timer: 3000
           })
+          // Actualise la page
+          setTimeout(() => {
+            window.location.reload();
+          }, 4000)
+
 
         },
         error => {
@@ -155,21 +156,23 @@ export class ProfileComponent {
 
   // une fonction pour changer le mots de passe de l'utilisateur
   onChangePassword(passwordChange: PasswordChange) {
-    console.log(passwordChange);
-    const element: HTMLElement = document.getElementById(
-      'changePasswordDismiss'
-    ) as HTMLElement;
-    element.click();
     this.loadingService.isLoading.next(true);
     this.subscriptions.push(
       this.accountService.changePassword(passwordChange).subscribe(
         response => {
-          console.log(response);
+          const responses = response;
           this.loadingService.isLoading.next(false);
-          this.alertService.showAlert(
-            "Le mot de passe a été mis à jour avec succès !",
-            AlertType.SUCCESS
-          );
+          // Alert Popup success
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Succès !',
+            text: 'Le mot de passe a été mis à jour avec succès !',
+            showConfirmButton: false,
+            heightAuto: false,
+            showDenyButton: false,
+            timer: 3000
+          })
         },
         error => {
           console.log(error);
@@ -186,20 +189,36 @@ export class ProfileComponent {
   // une fonction pour les message d'erreur
   private showErrorMessage(errorMessage: string): void {
     if (errorMessage === 'PasswordNotMatched') {
-      this.alertService.showAlert(
-        "Les mots de passe ne correspondent pas. Veuillez réessayer !",
-        AlertType.DANGER
-      );
+      // Alert Popup success
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Les mots de passe ne correspondent pas. Veuillez réessayer !',
+        showConfirmButton: false,
+        timer: 4000
+      })
     } else if (errorMessage === 'IncorrectCurrentPassword') {
-      this.alertService.showAlert(
-        "Le mot de passe actuel est incorrect. Veuillez réessayer !",
-        AlertType.DANGER
-      );
+      // Alert Popup success
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Le mot de passe actuel est incorrect. Veuillez réessayer !',
+        showConfirmButton: false,
+        timer: 4000
+      })
     } else {
-      this.alertService.showAlert(
-        "Le changement de mot de passe a échoué. Veuillez réessayer !",
-        AlertType.DANGER
-      );
+      // Alert Popup success
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Le changement de mot de passe a échoué. Veuillez réessayer !',
+        showConfirmButton: false,
+        timer: 4000
+      })
+
     }
   }
 
