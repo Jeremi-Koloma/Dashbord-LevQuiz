@@ -85,8 +85,6 @@ export class ProfileComponent {
         (response: Quiz[]) => {
           // affectons cette liste à quizList
           this.user.quizList = response;
-
-          console.log(this.user.quizList);
         },
         error => {
           console.log(error);

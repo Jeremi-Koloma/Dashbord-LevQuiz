@@ -33,7 +33,6 @@ export class FormateursComponent implements OnInit {
   TogetFormateurList() {
     this.accountService.getFormateurList().subscribe(data => {
       this.formateurList = data;
-      console.log(this.formateurList)
     }
     )
   }
@@ -47,21 +46,35 @@ export class FormateursComponent implements OnInit {
       text: "Êtes-vous vraiment sûr de le supprimer ?",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#0C85F8',
+      cancelButtonColor: '#E24C4C',
       confirmButtonText: 'Oui, supprimer',
       cancelButtonText: 'Anuler'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Formateur supprimé !',
-          'success'
+        this.accountService.deleteUser(id).subscribe(
+          (data) => {
+            const formateurDeleted = data;
+          }
         )
+        Swal.fire({
+            title: 'Supprimer !',
+            text: 'Formateur supprimé avec succès !',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: "D'accord",
+            confirmButtonColor: '#0C85F8',
+          })
+         // Actualise la page
+         setTimeout(() => {
+          window.location.reload();
+        }, 3000)
       }
+
     })
+
   }
-  
+
 
 
 

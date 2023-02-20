@@ -221,19 +221,19 @@ export class AccountService {
     return this.http.get<User[]>(`${this.host}/user/listApprenant`);
   }
 
-  
-   //  La méthode qui nous permet d'afficher la liste des Formateurs
-   getFormateurList(): Observable<User[]> {
+
+  //  La méthode qui nous permet d'afficher la liste des Formateurs
+  getFormateurList(): Observable<User[]> {
     return this.http.get<User[]>(`${this.host}/user/listFormateur`);
   }
 
 
-   //  La méthode qui nous permet d'afficher la liste des Formateurs non Activer
-   getFormateurListNoActive(): Observable<User[]> {
+  //  La méthode qui nous permet d'afficher la liste des Formateurs non Activer
+  getFormateurListNoActive(): Observable<User[]> {
     return this.http.get<User[]>(`${this.host}/user/listFormateurStatusNoActive`);
   }
 
-  
+
   // ************   Une fonction pour Activer le status de formateur   ******************************
   ActiveStatus(id: number): Observable<UserFormateur> {
     return this.http.put<UserFormateur>(`${this.host}/user/changestatus/${id}`, null);

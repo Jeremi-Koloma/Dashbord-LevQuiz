@@ -11,8 +11,9 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <h5 class="card-title pt-2 fw-bold text-primary">Liste des Apprenants <span
-                                class="fw-normal ms-2">({{studentList.length}})</span></h5>
+                        <h5 class="card-title pt-2 fw-bold text-primary">Liste des Apprenants
+                            <span class="fw-normal ms-2" *ngIf="studentList != null">({{studentList.length}})</span>
+                        </h5>
                     </div>
                 </div>
             </div>
